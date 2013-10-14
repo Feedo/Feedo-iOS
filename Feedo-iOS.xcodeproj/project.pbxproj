@@ -23,6 +23,7 @@
 		45A9F071180C82AC001C46D2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45A9F06F180C82AC001C46D2 /* InfoPlist.strings */; };
 		45A9F073180C82AC001C46D2 /* Feedo_iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A9F072180C82AC001C46D2 /* Feedo_iOSTests.m */; };
 		45A9F07E180C89F2001C46D2 /* FeedItemDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A9F07D180C89F2001C46D2 /* FeedItemDetailsViewController.m */; };
+		45A9F084180C8DA6001C46D2 /* FDFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A9F083180C8DA6001C46D2 /* FDFeed.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,9 @@
 		45A9F072180C82AC001C46D2 /* Feedo_iOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Feedo_iOSTests.m; sourceTree = "<group>"; };
 		45A9F07C180C89F2001C46D2 /* FeedItemDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedItemDetailsViewController.h; sourceTree = "<group>"; };
 		45A9F07D180C89F2001C46D2 /* FeedItemDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedItemDetailsViewController.m; sourceTree = "<group>"; };
+		45A9F082180C8DA6001C46D2 /* FDFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDFeed.h; sourceTree = "<group>"; };
+		45A9F083180C8DA6001C46D2 /* FDFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDFeed.m; sourceTree = "<group>"; };
+		45A9F085180C9024001C46D2 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,8 +178,21 @@
 		45A9F081180C8D27001C46D2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				45A9F082180C8DA6001C46D2 /* FDFeed.h */,
+				45A9F083180C8DA6001C46D2 /* FDFeed.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		45A9F086180C9024001C46D2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				45A9F08D180C9026001C46D2 /* libRestKit.a */,
+				45A9F08F180C9026001C46D2 /* RestKitTests.octest */,
+				45A9F091180C9026001C46D2 /* RestKit.framework */,
+				45A9F093180C9026001C46D2 /* RestKitFrameworkTests.octest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
