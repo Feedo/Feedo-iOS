@@ -19,11 +19,7 @@
 
 @implementation FeedsTableViewController
 
-- (void)awakeFromNib
-{
-    [super awakeFromNib];
-}
-
+#pragma mark - Init
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -40,11 +36,31 @@
                                                                                target:self
                                                                                action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton; */
+    
+    [self.refreshControl addTarget:self
+                              action:@selector(refreshControlPulled)
+                    forControlEvents:UIControlEventAllEvents];
 }
 - (void)initAPIConnector
 {
     connector = [[APIConnector alloc] initWithHost:@"http://localhost:9292"];
+    [self loadFeeds];
+}
+
+#pragma mark - Misc
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void)loadFeeds
+{
+    [self.refreshControl beginRefreshing];
+    
     [connector requestFeedsWithCallback:^(NSArray *items, NSError *error) {
+        [self.refreshControl endRefreshing];
+        
         if ( !error ) {
             feeds = [NSMutableArray arrayWithArray:items];
             [self.tableView reloadData];
@@ -59,12 +75,11 @@
     }];
 }
 
-- (void)didReceiveMemoryWarning
+#pragma mark - UI Events
+- (void)refreshControlPulled
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [self loadFeeds];
 }
-
 - (void)insertNewObject:(id)sender
 {
     if (!feeds) {
@@ -133,6 +148,8 @@
     return YES;
 }
 */
+
+#pragma mark - Segue
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
