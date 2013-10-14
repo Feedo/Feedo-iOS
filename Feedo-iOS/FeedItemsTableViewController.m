@@ -16,10 +16,10 @@
 
 #pragma mark - Managing the detail item
 
-- (void)setDetailItem:(id)newDetailItem
+- (void)setFeedItem:(FDFeed*)newFeedItem
 {
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
+    if (_feedItem != newFeedItem) {
+        _feedItem = newFeedItem;
         
         // Update the view.
         [self configureView];
@@ -30,8 +30,8 @@
 {
     // Update the user interface for the detail item.
 
-    if (self.detailItem) {
-        
+    if (self.feedItem) {
+        self.title = self.feedItem.title;
     }
 }
 

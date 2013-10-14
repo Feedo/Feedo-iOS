@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+#import "FDFeed.h"
+
 @interface FeedItemsTableViewController : UITableViewController
 
-@property (strong, nonatomic) id detailItem;
+@property (strong, nonatomic) FDFeed* feedItem;
 
 @end
