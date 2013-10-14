@@ -44,7 +44,19 @@
 - (void)initAPIConnector
 {
     connector = [[APIConnector alloc] initWithHost:@"http://localhost:9292"];
-    [connector requestFeeds];
+    [connector requestFeedsWithCallback:^(NSArray *items, NSError *error) {
+        if ( !error ) {
+            _objects = [NSMutableArray arrayWithArray:items];
+            [self.tableView reloadData];
+        }
+        else {
+            [[[UIAlertView alloc] initWithTitle:@"Error"
+                                        message:error.description
+                                       delegate:nil
+                              cancelButtonTitle:@"Dismiss"
+                              otherButtonTitles:nil] show];
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning

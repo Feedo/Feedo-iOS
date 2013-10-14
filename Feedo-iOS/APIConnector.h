@@ -15,7 +15,7 @@
 
 - (id)initWithHost:(NSString*)host;
 
-- (NSArray*)requestFeeds;
+- (void)requestFeedsWithCallback:(void (^)(NSArray* items, NSError *error))callback;
 
 @property (nonatomic) NSString* hostUrl;
 

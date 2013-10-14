@@ -53,17 +53,21 @@
 
 #pragma mark - Requests
 
-- (NSArray*)requestFeeds
+- (void)requestFeedsWithCallback:(void (^)(NSArray* items, NSError *error))callback
 {
     [manager getObjectsAtPath:@"/api/feeds"
                    parameters:nil
                       success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                           NSLog(@"requestFeeds succeeded (%d): %@", mappingResult.count, mappingResult);
+                          
+                          callback(mappingResult.array, nil);
+                          
                       }
                       failure:^(RKObjectRequestOperation *operation, NSError *error) {
                           NSLog(@"requestFeed failed: %@", error.description);
+                          
+                          callback(nil, error);
                       }];
-    return nil;
 }
 
 @end
