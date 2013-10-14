@@ -139,7 +139,7 @@
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         FDFeed *feed = feeds[indexPath.row];
-        [[segue destinationViewController] setFeedItem:feed];
+        [[segue destinationViewController] setFeed:feed];
     }
 }
 

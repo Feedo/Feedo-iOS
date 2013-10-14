@@ -88,7 +88,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="76l-Dh-dFx" kind="push" id="4hf-91-5gC"/>
+                                    <segue destination="76l-Dh-dFx" kind="push" identifier="showDetail" id="4hf-91-5gC"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

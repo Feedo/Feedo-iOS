@@ -8,6 +8,8 @@
 
 #import "FeedItemsTableViewController.h"
 
+#import "FeedItemDetailsViewController.h"
+
 @interface FeedItemsTableViewController ()
 {
     NSMutableArray *feedItems;
@@ -19,10 +21,10 @@
 
 #pragma mark - Managing the detail item
 
-- (void)setFeedItem:(FDFeed*)newFeedItem
+- (void)setFeed:(FDFeed*)newFeed
 {
-    if (_feedItem != newFeedItem) {
-        _feedItem = newFeedItem;
+    if ( _feed != newFeed) {
+        _feed = newFeed;
         
         // Update the view.
         [self configureView];
@@ -33,8 +35,8 @@
 {
     // Update the user interface for the detail item.
 
-    if (self.feedItem) {
-        self.title = self.feedItem.title;
+    if (self.feed) {
+        self.title = self.feed.title;
     }
 }
 
@@ -48,7 +50,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     APIConnector *connector = [[APIConnector alloc] initWithHost:@"http://localhost:9292"];
-    [connector requestFeedItemsWithFeedID:self.feedItem.identifier WithCallback:^(NSArray *array, NSError *error) {
+    [connector requestFeedItemsWithFeedID:self.feed.identifier WithCallback:^(NSArray *array, NSError *error) {
         if ( !error ) {
             feedItems = [NSMutableArray arrayWithArray:array];
             [self.tableView reloadData];
@@ -79,6 +81,17 @@
     cell.textLabel.text = feedItem.title;
     
     return cell;
+}
+
+#pragma mark - Segue
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"showDetail"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        FDFeedItem *feedItem = feedItems[indexPath.row];
+        
+        [[segue destinationViewController] setFeedItem:feedItem];
+    }
 }
 
 @end

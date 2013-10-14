@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+#import "FDFeedItem.h"
+
 @interface FeedItemDetailsViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
+
+@property (nonatomic, retain) FDFeedItem* feedItem;
 
 @end

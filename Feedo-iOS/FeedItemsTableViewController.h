@@ -14,6 +14,6 @@
 
 @interface FeedItemsTableViewController : UITableViewController
 
-@property (strong, nonatomic) FDFeed* feedItem;
+@property (strong, nonatomic) FDFeed* feed;
 
 @end
