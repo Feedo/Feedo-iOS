@@ -74,13 +74,7 @@
         }
     }];
 }
-
-#pragma mark - UI Events
-- (void)refreshControlPulled
-{
-    [self loadFeeds];
-}
-- (void)insertNewObject:(id)sender
+- (void)addFeed
 {
     if (!feeds) {
         feeds = [[NSMutableArray alloc] init];
@@ -92,6 +86,16 @@
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0
                                                 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+#pragma mark - UI Events
+- (void)refreshControlPulled
+{
+    [self loadFeeds];
+}
+- (void)addButtonPreseed:(id)sender
+{
+    [self addFeed];
 }
 
 #pragma mark - Table View
