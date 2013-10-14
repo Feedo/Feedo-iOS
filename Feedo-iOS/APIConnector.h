@@ -10,12 +10,14 @@
 #import "RestKit/RestKit.h"
 
 #import "FDFeed.h"
+#import "FDFeedItem.h"
 
 @interface APIConnector : NSObject
 
 - (id)initWithHost:(NSString*)host;
 
 - (void)requestFeedsWithCallback:(void (^)(NSArray* items, NSError *error))callback;
+- (void)requestFeedItemsWithFeedID:(int)feedId WithCallback:(void (^)(NSArray *array, NSError *error))callback;
 
 @property (nonatomic) NSString* hostUrl;
 

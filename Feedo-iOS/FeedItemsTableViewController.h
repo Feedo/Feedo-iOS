@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "APIConnector.h"
 
 #import "FDFeed.h"
+#import "FDFeedItem.h"
 
 @interface FeedItemsTableViewController : UITableViewController
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		450B33EA180C950900D1A293 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 450B33E9180C950900D1A293 /* CoreData.framework */; };
+		4521942A180CA7F40007B57B /* FDFeedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 45219429180CA7F40007B57B /* FDFeedItem.m */; };
 		4547B485180C965B000B486F /* APIConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 4547B484180C965B000B486F /* APIConnector.m */; };
 		45A9F045180C82AC001C46D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A9F044180C82AC001C46D2 /* Foundation.framework */; };
 		45A9F047180C82AC001C46D2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A9F046180C82AC001C46D2 /* CoreGraphics.framework */; };
@@ -80,6 +81,8 @@
 
 /* Begin PBXFileReference section */
 		450B33E9180C950900D1A293 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		45219428180CA7F40007B57B /* FDFeedItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDFeedItem.h; sourceTree = "<group>"; };
+		45219429180CA7F40007B57B /* FDFeedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDFeedItem.m; sourceTree = "<group>"; };
 		4547B483180C965B000B486F /* APIConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIConnector.h; sourceTree = "<group>"; };
 		4547B484180C965B000B486F /* APIConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIConnector.m; sourceTree = "<group>"; };
 		45A9F041180C82AC001C46D2 /* Feedo-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Feedo-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -241,6 +244,8 @@
 			children = (
 				45A9F082180C8DA6001C46D2 /* FDFeed.h */,
 				45A9F083180C8DA6001C46D2 /* FDFeed.m */,
+				45219428180CA7F40007B57B /* FDFeedItem.h */,
+				45219429180CA7F40007B57B /* FDFeedItem.m */,
 				4547B483180C965B000B486F /* APIConnector.h */,
 				4547B484180C965B000B486F /* APIConnector.m */,
 			);
@@ -397,6 +402,7 @@
 				45A9F055180C82AC001C46D2 /* AppDelegate.m in Sources */,
 				45A9F05B180C82AC001C46D2 /* FeedsTableViewController.m in Sources */,
 				45A9F084180C8DA6001C46D2 /* FDFeed.m in Sources */,
+				4521942A180CA7F40007B57B /* FDFeedItem.m in Sources */,
 				45A9F051180C82AC001C46D2 /* main.m in Sources */,
 				45A9F05E180C82AC001C46D2 /* FeedItemsTableViewController.m in Sources */,
 				4547B485180C965B000B486F /* APIConnector.m in Sources */,

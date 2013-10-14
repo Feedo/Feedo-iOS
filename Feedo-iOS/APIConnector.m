@@ -32,9 +32,21 @@
 }
 - (void)setupRKObjectManager
 {
-    RKResponseDescriptor *feedDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:[self mappingForFeed] method:RKRequestMethodGET pathPattern:@"/api/feeds" keyPath:@"" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful);
     
+    RKResponseDescriptor *feedDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:[self mappingForFeed]
+                                                                                        method:RKRequestMethodGET
+                                                                                   pathPattern:@"/api/feeds"
+                                                                                       keyPath:@""
+                                                                                   statusCodes:statusCodes];
     [manager addResponseDescriptor:feedDescriptor];
+    
+    RKResponseDescriptor *feedItemDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:[self mappingForFeedItems]
+                                                                                            method:RKRequestMethodGET
+                                                                                       pathPattern:@"/api/feeds/:feedID/items"
+                                                                                           keyPath:@""
+                                                                                       statusCodes:statusCodes];
+    [manager addResponseDescriptor:feedItemDescriptor];
 }
 - (RKObjectMapping *)mappingForFeed
 {
@@ -45,8 +57,24 @@
                                                   @"description": @"description",
                                                   @"link": @"link",
                                                   @"favicon_url": @"faviconUrl",
-                                                  @"hasUnread": @"hasUnread",
+                                                  @"has_unread": @"hasUnread",
                                                   @"items": @"items"
+                                                  }];
+    return mapping;
+}
+- (RKObjectMapping *)mappingForFeedItems
+{
+    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[FDFeedItem class]];
+    [mapping addAttributeMappingsFromDictionary:@{
+                                                  @"title": @"title",
+                                                  @"content": @"content",
+                                                  @"summary": @"summary",
+                                                  @"image": @"imageUrl",
+                                                  @"published": @"published",
+                                                  @"link": @"link",
+                                                  @"author": @"author",
+                                                  @"itemGuid": @"itemGuid",
+                                                  @"read": @"read"
                                                   }];
     return mapping;
 }
@@ -58,13 +86,29 @@
     [manager getObjectsAtPath:@"/api/feeds"
                    parameters:nil
                       success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-                          NSLog(@"requestFeeds succeeded (%d): %@", mappingResult.count, mappingResult);
+                          // NSLog(@"requestFeeds succeeded (%d): %@", mappingResult.count, mappingResult);
                           
                           callback(mappingResult.array, nil);
                           
                       }
                       failure:^(RKObjectRequestOperation *operation, NSError *error) {
                           NSLog(@"requestFeed failed: %@", error.description);
+                          
+                          callback(nil, error);
+                      }];
+}
+
+- (void)requestFeedItemsWithFeedID:(int)feedId WithCallback:(void (^)(NSArray *array, NSError *error))callback
+{
+    NSString* url = [NSString stringWithFormat:@"/api/feeds/%d/items", feedId];
+    
+    [manager getObjectsAtPath:url
+                   parameters:nil
+                      success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                          callback(mappingResult.array, nil);
+                      }
+                      failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                          NSLog(@"requestFeedItemsWithFeedID: failed.");
                           
                           callback(nil, error);
                       }];
