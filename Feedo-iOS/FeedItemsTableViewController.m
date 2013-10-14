@@ -12,6 +12,8 @@
 
 @interface FeedItemsTableViewController ()
 {
+    APIConnector *connector;
+    
     NSMutableArray *feedItems;
 }
 - (void)configureView;
@@ -20,7 +22,6 @@
 @implementation FeedItemsTableViewController
 
 #pragma mark - Managing the detail item
-
 - (void)setFeed:(FDFeed*)newFeed
 {
     if ( _feed != newFeed) {
@@ -30,7 +31,6 @@
         [self configureView];
     }
 }
-
 - (void)configureView
 {
     // Update the user interface for the detail item.
@@ -40,17 +40,41 @@
     }
 }
 
+#pragma mark - Init
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
+    [self initControls];
+    
+    [self initAPIConnector];
+}
+- (void)initControls
+{
+    [self.refreshControl addTarget:self
+                            action:@selector(refreshControlPulled)
+                  forControlEvents:UIControlEventAllEvents];
+}
+- (void)initAPIConnector
+{
+    connector = [[APIConnector alloc] initWithHost:@"http://localhost:9292"];
+    [self loadFeedItems];
 }
 
-- (void)viewDidAppear:(BOOL)animated
+#pragma mark - Misc
+- (void)didReceiveMemoryWarning
 {
-    APIConnector *connector = [[APIConnector alloc] initWithHost:@"http://localhost:9292"];
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+- (void)loadFeedItems
+{
+    [self.refreshControl beginRefreshing];
+    
     [connector requestFeedItemsWithFeedID:self.feed.identifier WithCallback:^(NSArray *array, NSError *error) {
+        [self.refreshControl endRefreshing];
+        
         if ( !error ) {
             feedItems = [NSMutableArray arrayWithArray:array];
             [self.tableView reloadData];
@@ -58,10 +82,10 @@
     }];
 }
 
-- (void)didReceiveMemoryWarning
+#pragma mark - UI Events
+- (void)refreshControlPulled
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [self loadFeedItems];
 }
 
 #pragma mark - TableView
@@ -75,10 +99,16 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:REUSABLE_CELL_IDENFIIER];
+    if ( !cell )
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                      reuseIdentifier:REUSABLE_CELL_IDENFIIER];
+    }
     
     FDFeedItem *feedItem = [feedItems objectAtIndex:indexPath.row];
     cell.textLabel.text = feedItem.title;
+    cell.detailTextLabel.text = feedItem.summary;
     
     return cell;
 }

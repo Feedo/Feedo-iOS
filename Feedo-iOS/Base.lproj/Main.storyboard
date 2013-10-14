@@ -102,6 +102,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Feed Items" id="JqV-hM-5F0"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="0N9-Wh-axb">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y5B-au-T5e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -119,13 +122,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CfW-7m-KFP">
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CfW-7m-KFP">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="CfW-7m-KFP" secondAttribute="trailing" id="OQx-zq-eb4"/>
+                            <constraint firstItem="CfW-7m-KFP" firstAttribute="top" secondItem="BM7-69-paU" secondAttribute="top" id="Ua4-Ga-MBj"/>
+                            <constraint firstItem="CfW-7m-KFP" firstAttribute="leading" secondItem="BM7-69-paU" secondAttribute="leading" id="Vxb-bE-fOr"/>
+                            <constraint firstItem="tsf-Xo-WMn" firstAttribute="top" secondItem="CfW-7m-KFP" secondAttribute="bottom" id="aJj-JR-5LU"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Feed Item Title" id="Zew-nN-uEP"/>
                     <connections>

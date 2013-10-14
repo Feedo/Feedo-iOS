@@ -109,8 +109,12 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:REUSABLE_CELL_IDENFIIER
                                                             forIndexPath:indexPath];
+    if ( !cell ) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                      reuseIdentifier:REUSABLE_CELL_IDENFIIER];
+    }
 
     FDFeed *feed = feeds[indexPath.row];
     cell.textLabel.text = [feed title];
