@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Sören Gade. All rights reserved.
 //
 
-#import "DetailViewController.h"
+#import "FeedItemsTableViewController.h"
 
-@interface DetailViewController ()
+@interface FeedItemsTableViewController ()
 - (void)configureView;
 @end
 
-@implementation DetailViewController
+@implementation FeedItemsTableViewController
 
 #pragma mark - Managing the detail item
 

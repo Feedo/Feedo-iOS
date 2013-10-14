@@ -14,8 +14,8 @@
 		45A9F051180C82AC001C46D2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A9F050180C82AC001C46D2 /* main.m */; };
 		45A9F055180C82AC001C46D2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A9F054180C82AC001C46D2 /* AppDelegate.m */; };
 		45A9F058180C82AC001C46D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45A9F056180C82AC001C46D2 /* Main.storyboard */; };
-		45A9F05B180C82AC001C46D2 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A9F05A180C82AC001C46D2 /* MasterViewController.m */; };
-		45A9F05E180C82AC001C46D2 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A9F05D180C82AC001C46D2 /* DetailViewController.m */; };
+		45A9F05B180C82AC001C46D2 /* FeedsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A9F05A180C82AC001C46D2 /* FeedsTableViewController.m */; };
+		45A9F05E180C82AC001C46D2 /* FeedItemsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A9F05D180C82AC001C46D2 /* FeedItemsTableViewController.m */; };
 		45A9F060180C82AC001C46D2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45A9F05F180C82AC001C46D2 /* Images.xcassets */; };
 		45A9F067180C82AC001C46D2 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A9F066180C82AC001C46D2 /* XCTest.framework */; };
 		45A9F068180C82AC001C46D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A9F044180C82AC001C46D2 /* Foundation.framework */; };
@@ -46,10 +46,10 @@
 		45A9F053180C82AC001C46D2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		45A9F054180C82AC001C46D2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		45A9F057180C82AC001C46D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		45A9F059180C82AC001C46D2 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		45A9F05A180C82AC001C46D2 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		45A9F05C180C82AC001C46D2 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		45A9F05D180C82AC001C46D2 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		45A9F059180C82AC001C46D2 /* FeedsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedsTableViewController.h; sourceTree = "<group>"; };
+		45A9F05A180C82AC001C46D2 /* FeedsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedsTableViewController.m; sourceTree = "<group>"; };
+		45A9F05C180C82AC001C46D2 /* FeedItemsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedItemsTableViewController.h; sourceTree = "<group>"; };
+		45A9F05D180C82AC001C46D2 /* FeedItemsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedItemsTableViewController.m; sourceTree = "<group>"; };
 		45A9F05F180C82AC001C46D2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		45A9F065180C82AC001C46D2 /* Feedo-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Feedo-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45A9F066180C82AC001C46D2 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -118,10 +118,10 @@
 				45A9F053180C82AC001C46D2 /* AppDelegate.h */,
 				45A9F054180C82AC001C46D2 /* AppDelegate.m */,
 				45A9F056180C82AC001C46D2 /* Main.storyboard */,
-				45A9F059180C82AC001C46D2 /* MasterViewController.h */,
-				45A9F05A180C82AC001C46D2 /* MasterViewController.m */,
-				45A9F05C180C82AC001C46D2 /* DetailViewController.h */,
-				45A9F05D180C82AC001C46D2 /* DetailViewController.m */,
+				45A9F059180C82AC001C46D2 /* FeedsTableViewController.h */,
+				45A9F05A180C82AC001C46D2 /* FeedsTableViewController.m */,
+				45A9F05C180C82AC001C46D2 /* FeedItemsTableViewController.h */,
+				45A9F05D180C82AC001C46D2 /* FeedItemsTableViewController.m */,
 				45A9F05F180C82AC001C46D2 /* Images.xcassets */,
 				45A9F04B180C82AC001C46D2 /* Supporting Files */,
 			);
@@ -255,9 +255,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				45A9F055180C82AC001C46D2 /* AppDelegate.m in Sources */,
-				45A9F05B180C82AC001C46D2 /* MasterViewController.m in Sources */,
+				45A9F05B180C82AC001C46D2 /* FeedsTableViewController.m in Sources */,
 				45A9F051180C82AC001C46D2 /* main.m in Sources */,
-				45A9F05E180C82AC001C46D2 /* DetailViewController.m in Sources */,
+				45A9F05E180C82AC001C46D2 /* FeedItemsTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +466,7 @@
 				45A9F078180C82AC001C46D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		45A9F079180C82AC001C46D2 /* Build configuration list for PBXNativeTarget "Feedo-iOSTests" */ = {
 			isa = XCConfigurationList;
@@ -474,6 +475,7 @@
 				45A9F07B180C82AC001C46D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

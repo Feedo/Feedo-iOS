@@ -6,16 +6,16 @@
 //  Copyright (c) 2013 Sören Gade. All rights reserved.
 //
 
-#import "MasterViewController.h"
+#import "FeedsTableViewController.h"
 
-#import "DetailViewController.h"
+#import "FeedItemsTableViewController.h"
 
-@interface MasterViewController () {
+@interface FeedsTableViewController () {
     NSMutableArray *_objects;
 }
 @end
 
-@implementation MasterViewController
+@implementation FeedsTableViewController
 
 - (void)awakeFromNib
 {
