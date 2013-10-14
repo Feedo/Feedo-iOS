@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		450B33EA180C950900D1A293 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 450B33E9180C950900D1A293 /* CoreData.framework */; };
+		4547B485180C965B000B486F /* APIConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 4547B484180C965B000B486F /* APIConnector.m */; };
 		45A9F045180C82AC001C46D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A9F044180C82AC001C46D2 /* Foundation.framework */; };
 		45A9F047180C82AC001C46D2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A9F046180C82AC001C46D2 /* CoreGraphics.framework */; };
 		45A9F049180C82AC001C46D2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A9F048180C82AC001C46D2 /* UIKit.framework */; };
@@ -24,6 +26,11 @@
 		45A9F073180C82AC001C46D2 /* Feedo_iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A9F072180C82AC001C46D2 /* Feedo_iOSTests.m */; };
 		45A9F07E180C89F2001C46D2 /* FeedItemDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A9F07D180C89F2001C46D2 /* FeedItemDetailsViewController.m */; };
 		45A9F084180C8DA6001C46D2 /* FDFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A9F083180C8DA6001C46D2 /* FDFeed.m */; };
+		45A9F096180C91CC001C46D2 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A9F08D180C9026001C46D2 /* libRestKit.a */; };
+		45A9F098180C91DC001C46D2 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A9F097180C91DC001C46D2 /* CFNetwork.framework */; };
+		45A9F09A180C91E4001C46D2 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A9F099180C91E4001C46D2 /* MobileCoreServices.framework */; };
+		45A9F09C180C91F2001C46D2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A9F09B180C91F2001C46D2 /* Security.framework */; };
+		45A9F09E180C91F7001C46D2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A9F09D180C91F7001C46D2 /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +41,47 @@
 			remoteGlobalIDString = 45A9F040180C82AC001C46D2;
 			remoteInfo = "Feedo-iOS";
 		};
+		45A9F08C180C9026001C46D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 45A9F085180C9024001C46D2 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160D1614564E810060A5C5;
+			remoteInfo = RestKit;
+		};
+		45A9F08E180C9026001C46D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 45A9F085180C9024001C46D2 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160D2614564E820060A5C5;
+			remoteInfo = RestKitTests;
+		};
+		45A9F090180C9026001C46D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 45A9F085180C9024001C46D2 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160E62145651060060A5C5;
+			remoteInfo = RestKitFramework;
+		};
+		45A9F092180C9026001C46D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 45A9F085180C9024001C46D2 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160E78145651060060A5C5;
+			remoteInfo = RestKitFrameworkTests;
+		};
+		45A9F094180C91AF001C46D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 45A9F085180C9024001C46D2 /* RestKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 25160D1514564E810060A5C5;
+			remoteInfo = RestKit;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		450B33E9180C950900D1A293 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		4547B483180C965B000B486F /* APIConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIConnector.h; sourceTree = "<group>"; };
+		4547B484180C965B000B486F /* APIConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIConnector.m; sourceTree = "<group>"; };
 		45A9F041180C82AC001C46D2 /* Feedo-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Feedo-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45A9F044180C82AC001C46D2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		45A9F046180C82AC001C46D2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -63,6 +108,10 @@
 		45A9F082180C8DA6001C46D2 /* FDFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDFeed.h; sourceTree = "<group>"; };
 		45A9F083180C8DA6001C46D2 /* FDFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDFeed.m; sourceTree = "<group>"; };
 		45A9F085180C9024001C46D2 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
+		45A9F097180C91DC001C46D2 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		45A9F099180C91E4001C46D2 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		45A9F09B180C91F2001C46D2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		45A9F09D180C91F7001C46D2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +119,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				450B33EA180C950900D1A293 /* CoreData.framework in Frameworks */,
+				45A9F09E180C91F7001C46D2 /* SystemConfiguration.framework in Frameworks */,
+				45A9F09C180C91F2001C46D2 /* Security.framework in Frameworks */,
+				45A9F09A180C91E4001C46D2 /* MobileCoreServices.framework in Frameworks */,
+				45A9F098180C91DC001C46D2 /* CFNetwork.framework in Frameworks */,
+				45A9F096180C91CC001C46D2 /* libRestKit.a in Frameworks */,
 				45A9F047180C82AC001C46D2 /* CoreGraphics.framework in Frameworks */,
 				45A9F049180C82AC001C46D2 /* UIKit.framework in Frameworks */,
 				45A9F045180C82AC001C46D2 /* Foundation.framework in Frameworks */,
@@ -92,6 +147,7 @@
 		45A9F038180C82AB001C46D2 = {
 			isa = PBXGroup;
 			children = (
+				45A9F085180C9024001C46D2 /* RestKit.xcodeproj */,
 				45A9F04A180C82AC001C46D2 /* Feedo-iOS */,
 				45A9F06C180C82AC001C46D2 /* Feedo-iOSTests */,
 				45A9F043180C82AC001C46D2 /* Frameworks */,
@@ -111,6 +167,11 @@
 		45A9F043180C82AC001C46D2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				450B33E9180C950900D1A293 /* CoreData.framework */,
+				45A9F09D180C91F7001C46D2 /* SystemConfiguration.framework */,
+				45A9F09B180C91F2001C46D2 /* Security.framework */,
+				45A9F099180C91E4001C46D2 /* MobileCoreServices.framework */,
+				45A9F097180C91DC001C46D2 /* CFNetwork.framework */,
 				45A9F044180C82AC001C46D2 /* Foundation.framework */,
 				45A9F046180C82AC001C46D2 /* CoreGraphics.framework */,
 				45A9F048180C82AC001C46D2 /* UIKit.framework */,
@@ -180,6 +241,8 @@
 			children = (
 				45A9F082180C8DA6001C46D2 /* FDFeed.h */,
 				45A9F083180C8DA6001C46D2 /* FDFeed.m */,
+				4547B483180C965B000B486F /* APIConnector.h */,
+				4547B484180C965B000B486F /* APIConnector.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -209,6 +272,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				45A9F095180C91AF001C46D2 /* PBXTargetDependency */,
 			);
 			name = "Feedo-iOS";
 			productName = "Feedo-iOS";
@@ -258,6 +322,12 @@
 			mainGroup = 45A9F038180C82AB001C46D2;
 			productRefGroup = 45A9F042180C82AC001C46D2 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 45A9F086180C9024001C46D2 /* Products */;
+					ProjectRef = 45A9F085180C9024001C46D2 /* RestKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				45A9F040180C82AC001C46D2 /* Feedo-iOS */,
@@ -265,6 +335,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		45A9F08D180C9026001C46D2 /* libRestKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKit.a;
+			remoteRef = 45A9F08C180C9026001C46D2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		45A9F08F180C9026001C46D2 /* RestKitTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RestKitTests.octest;
+			remoteRef = 45A9F08E180C9026001C46D2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		45A9F091180C9026001C46D2 /* RestKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RestKit.framework;
+			remoteRef = 45A9F090180C9026001C46D2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		45A9F093180C9026001C46D2 /* RestKitFrameworkTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RestKitFrameworkTests.octest;
+			remoteRef = 45A9F092180C9026001C46D2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		45A9F03F180C82AC001C46D2 /* Resources */ = {
@@ -295,8 +396,10 @@
 				45A9F07E180C89F2001C46D2 /* FeedItemDetailsViewController.m in Sources */,
 				45A9F055180C82AC001C46D2 /* AppDelegate.m in Sources */,
 				45A9F05B180C82AC001C46D2 /* FeedsTableViewController.m in Sources */,
+				45A9F084180C8DA6001C46D2 /* FDFeed.m in Sources */,
 				45A9F051180C82AC001C46D2 /* main.m in Sources */,
 				45A9F05E180C82AC001C46D2 /* FeedItemsTableViewController.m in Sources */,
+				4547B485180C965B000B486F /* APIConnector.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +418,11 @@
 			isa = PBXTargetDependency;
 			target = 45A9F040180C82AC001C46D2 /* Feedo-iOS */;
 			targetProxy = 45A9F06A180C82AC001C46D2 /* PBXContainerItemProxy */;
+		};
+		45A9F095180C91AF001C46D2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RestKit;
+			targetProxy = 45A9F094180C91AF001C46D2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -381,7 +489,9 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -413,7 +523,9 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -426,7 +538,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Feedo-iOS/Feedo-iOS-Prefix.pch";
 				INFOPLIST_FILE = "Feedo-iOS/Feedo-iOS-Info.plist";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)/../../Headers\"";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -439,7 +556,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Feedo-iOS/Feedo-iOS-Prefix.pch";
 				INFOPLIST_FILE = "Feedo-iOS/Feedo-iOS-Info.plist";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)/../../Headers\"";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
