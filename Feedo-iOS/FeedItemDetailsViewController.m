@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Sören Gade. All rights reserved.
 //
 
-#import "DetailViewController.h"
+#import "FeedItemDetailsViewController.h"
 
-@interface DetailViewController ()
+@interface FeedItemDetailsViewController ()
 
 @end
 
-@implementation DetailViewController
+@implementation FeedItemDetailsViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

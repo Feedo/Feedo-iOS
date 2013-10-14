@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DetailViewController : UIViewController
+@interface FeedItemDetailsViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 @end
