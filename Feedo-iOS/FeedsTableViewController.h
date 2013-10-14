@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "APIConnector.h"
 
 @interface FeedsTableViewController : UITableViewController
 

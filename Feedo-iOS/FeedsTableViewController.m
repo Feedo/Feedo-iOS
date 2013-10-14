@@ -11,6 +11,8 @@
 #import "FeedItemsTableViewController.h"
 
 @interface FeedsTableViewController () {
+    APIConnector *connector;
+    
     NSMutableArray *_objects;
 }
 @end
@@ -26,12 +28,23 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    [self initControls];
+    
+    [self initAPIConnector];
+}
+- (void)initControls
+{
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
-
+    
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                                                target:self
                                                                                action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
+}
+- (void)initAPIConnector
+{
+    connector = [[APIConnector alloc] initWithHost:@"http://localhost:9292"];
+    [connector requestFeeds];
 }
 
 - (void)didReceiveMemoryWarning

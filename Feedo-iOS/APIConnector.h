@@ -7,8 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RestKit/RestKit.h"
+
+#import "FDFeed.h"
 
 @interface APIConnector : NSObject
+
+- (id)initWithHost:(NSString*)host;
+
+- (NSArray*)requestFeeds;
 
 @property (nonatomic) NSString* hostUrl;
 
