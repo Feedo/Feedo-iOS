@@ -103,10 +103,10 @@
             </objects>
             <point key="canvasLocation" x="919" y="64"/>
         </scene>
-        <!--View Controller - Feed Item Title-->
+        <!--Detail View Controller - Feed Item Title-->
         <scene sceneID="kAN-4x-e1S">
             <objects>
-                <viewController id="76l-Dh-dFx" sceneMemberID="viewController">
+                <viewController id="76l-Dh-dFx" customClass="DetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Q9T-di-77r"/>
                         <viewControllerLayoutGuide type="bottom" id="tsf-Xo-WMn"/>
@@ -124,6 +124,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Feed Item Title" id="Zew-nN-uEP"/>
+                    <connections>
+                        <outlet property="webView" destination="CfW-7m-KFP" id="8jD-9z-eRn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mFy-uN-5pj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
