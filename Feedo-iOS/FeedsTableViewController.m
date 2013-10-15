@@ -30,6 +30,8 @@
 }
 - (void)initControls
 {
+    // main navigation bar color
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.906 green:0.545 blue:0.141 alpha:1]; /*#e78b24*/
     // self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
