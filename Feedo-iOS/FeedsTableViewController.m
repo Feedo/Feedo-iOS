@@ -202,9 +202,22 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
-        [feeds removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:@[indexPath]
-                         withRowAnimation:UITableViewRowAnimationAutomatic];
+        FDFeed *feed = [feeds objectAtIndex:indexPath.row];
+        [connector deleteFeed:feed WithCallback:^(NSArray *items, NSError *error) {
+            
+            if ( !error ) {
+                [feeds removeObject:feed];
+                [tableView deleteRowsAtIndexPaths:@[indexPath]
+                                 withRowAnimation:UITableViewRowAnimationAutomatic];
+            }
+            else {
+                [[[UIAlertView alloc] initWithTitle:error.localizedDescription
+                                            message:error.localizedFailureReason
+                                           delegate:nil
+                                  cancelButtonTitle:@"Dismiss"
+                                  otherButtonTitles:nil] show];
+            }
+        }];
         
     } /* else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.

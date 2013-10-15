@@ -179,6 +179,7 @@
     
     [self addFeed:feed WithCallback:callback];
 }
+
 - (void)addFeed:(FDFeed *)feed
    WithCallback:(void (^)(NSArray *items, NSError *error))callback
 {
@@ -191,6 +192,22 @@
                 failure:^(RKObjectRequestOperation *operation, NSError *error) {
                     callback(nil, error);
                 }];
+}
+
+- (void)deleteFeed:(FDFeed *)feed
+      WithCallback:(void (^)(NSArray *items, NSError *error))callback
+{
+    NSString *url = [NSString stringWithFormat:@"/api/feeds/%d", feed.identifier];
+    
+    [manager deleteObject:feed
+                     path:url
+               parameters:nil
+                  success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                      callback(mappingResult.array, nil);
+                  }
+                  failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                      callback(nil, error);
+                  }];
 }
 
 @end

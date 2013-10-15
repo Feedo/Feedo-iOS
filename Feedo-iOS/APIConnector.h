@@ -20,9 +20,14 @@
 - (id)initWithHost:(NSString*)host;
 
 - (void)requestFeedsWithCallback:(void (^)(NSArray* items, NSError *error))callback;
-- (void)requestFeedItemsWithFeedID:(int)feedId WithCallback:(void (^)(NSArray *array, NSError *error))callback;
-- (void)addFeedFromURL:(NSString *)url WithCallback:(void (^)(NSArray *items, NSError *error))callback;
-- (void)addFeed:(FDFeed *)feed WithCallback:(void (^)(NSArray *items, NSError *error))callback;
+- (void)requestFeedItemsWithFeedID:(int)feedId
+                      WithCallback:(void (^)(NSArray *array, NSError *error))callback;
+- (void)addFeedFromURL:(NSString *)url
+          WithCallback:(void (^)(NSArray *items, NSError *error))callback;
+- (void)addFeed:(FDFeed *)feed
+   WithCallback:(void (^)(NSArray *items, NSError *error))callback;
+- (void)deleteFeed:(FDFeed *)feed
+      WithCallback:(void (^)(NSArray *items, NSError *error))callback;
 
 @property (nonatomic) NSString* hostUrl;
 
