@@ -42,21 +42,32 @@
 }
 - (void)setupRKObjectManager
 {
-    NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful);
+    NSIndexSet *statusCodesSuccess = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful);
     
+    // FEED object
     RKResponseDescriptor *feedDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:[self mappingForFeed]
                                                                                         method:RKRequestMethodGET
                                                                                    pathPattern:@"/api/feeds"
-                                                                                       keyPath:@""
-                                                                                   statusCodes:statusCodes];
+                                                                                       keyPath:nil
+                                                                                   statusCodes:statusCodesSuccess];
     [manager addResponseDescriptor:feedDescriptor];
     
+    // FEED ITEM ObjectS
     RKResponseDescriptor *feedItemDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:[self mappingForFeedItems]
                                                                                             method:RKRequestMethodGET
                                                                                        pathPattern:@"/api/feeds/:feedID/items"
-                                                                                           keyPath:@""
-                                                                                       statusCodes:statusCodes];
+                                                                                           keyPath:nil
+                                                                                       statusCodes:statusCodesSuccess];
     [manager addResponseDescriptor:feedItemDescriptor];
+    
+    // ADD FEED request
+    RKObjectMapping *feedRequestMapping = [RKObjectMapping requestMapping];
+    [feedRequestMapping addAttributeMappingsFromDictionary:@{ @"link": @"file_url" }];
+    RKRequestDescriptor *feedRequestDescriptor = [RKRequestDescriptor requestDescriptorWithMapping:feedRequestMapping
+                                                                                       objectClass:[FDFeed class]
+                                                                                       rootKeyPath:nil
+                                                                                            method:RKRequestMethodPOST];
+    [manager addRequestDescriptor:feedRequestDescriptor];
     
     // force request types to be JSON encoded
     manager.requestSerializationMIMEType = RKMIMETypeJSON;
@@ -84,7 +95,7 @@
                                                   @"summary": @"summary",
                                                   @"image": @"imageUrl",
                                                   @"published": @"published",
-                                                  @"link": @"link",
+                                                  @"file_url": @"link",
                                                   @"author": @"author",
                                                   @"itemGuid": @"itemGuid",
                                                   @"read": @"read"
@@ -125,6 +136,26 @@
                           
                           callback(nil, error);
                       }];
+}
+
+- (void)addFeedFromURL:(NSString *)url WithCallback:(void (^)(NSArray *items, NSError *error))callback
+{
+    FDFeed *feed = [[FDFeed alloc] init];
+    feed.link = url;
+    
+    [self addFeed:feed WithCallback:callback];
+}
+- (void)addFeed:(FDFeed *)feed WithCallback:(void (^)(NSArray *items, NSError *error))callback
+{
+    [manager postObject:feed
+                   path:@"/api/feeds"
+             parameters:nil
+                success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                    callback(mappingResult.array, nil);
+                }
+                failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                    callback(nil, error);
+                }];
 }
 
 @end

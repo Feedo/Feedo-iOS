@@ -111,6 +111,20 @@
         feed.link = feedUrl;
         feed.title = feedUrl;
         
+        __block FeedsTableViewController *blockSelf = self;
+        [connector addFeed:feed WithCallback:^(NSArray *items, NSError *error) {
+            if ( !error ) {
+                [blockSelf reloadUIWithFeeds:items];
+            }
+            else {
+                [[[UIAlertView alloc] initWithTitle:error.localizedDescription
+                                            message:error.localizedFailureReason
+                                           delegate:nil
+                                  cancelButtonTitle:@"Dismiss"
+                                  otherButtonTitles:nil] show];
+            }
+        }];
+        
         [feeds addObject:feed];
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:feeds.count-1
                                                     inSection:0];
