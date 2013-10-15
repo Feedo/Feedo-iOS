@@ -84,16 +84,21 @@
     }
     
     // TODO add request for url and add at server side
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Add Feed" message:@"Please enter a url to the feed" delegate:self cancelButtonTitle:@"Add" otherButtonTitles:@"Cancel", nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Add Feed" message:@"Please enter a url to the feed" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Add", nil];
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
     [alert show];
 }
+#pragma mark - AlertView
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     NSString *buttonTitle = [alertView buttonTitleAtIndex:buttonIndex];
     
     if ( [buttonTitle isEqualToString:@"Add"] ) {
         NSString *feedUrl = [alertView textFieldAtIndex:0].text;
+        
+        if ( ![feedUrl hasPrefix:@"http://"] && ![feedUrl hasPrefix:@"https://"] ) {
+            feedUrl = [NSString stringWithFormat:@"http://%@", feedUrl];
+        }
         
         FDFeed* feed = [[FDFeed alloc] init];
         feed.link = feedUrl;
@@ -104,6 +109,19 @@
                                                     inSection:0];
         [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
+}
+- (BOOL)alertViewShouldEnableFirstOtherButton:(UIAlertView *)alertView
+{
+    NSString *input = [[alertView textFieldAtIndex:0] text];
+    if ( input ) {
+        // validate url
+        NSString *urlRegEx = @"(http|https)://((\\w)*|([0-9]*)|([-|_])*)+([\\.|/]((\\w)*|([0-9]*)|([-|_])*))+";
+        NSPredicate *urlTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", urlRegEx];
+        return [urlTest evaluateWithObject:input];
+        // return ( [input rangeOfString:@"/"].location != NSNotFound );
+    }
+    
+    return NO;
 }
 
 #pragma mark - UI Events
