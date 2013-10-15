@@ -57,6 +57,9 @@
                                                                                            keyPath:@""
                                                                                        statusCodes:statusCodes];
     [manager addResponseDescriptor:feedItemDescriptor];
+    
+    // force request types to be JSON encoded
+    manager.requestSerializationMIMEType = RKMIMETypeJSON;
 }
 - (RKObjectMapping *)mappingForFeed
 {
