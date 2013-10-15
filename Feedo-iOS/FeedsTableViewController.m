@@ -32,10 +32,10 @@
 {
     // self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
-    /* UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                                                target:self
-                                                                               action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton; */
+                                                                               action:@selector(addButtonPreseed:)];
+    self.navigationItem.rightBarButtonItem = addButton;
     
     [self.refreshControl addTarget:self
                               action:@selector(refreshControlPulled)
@@ -81,11 +81,26 @@
     }
     
     // TODO add request for url and add at server side
-    NSAssert(NO, @"Not implemented.");
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Add Feed" message:@"Please enter a url to the feed" delegate:self cancelButtonTitle:@"Add" otherButtonTitles:@"Cancel", nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [alert show];
+}
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSString *buttonTitle = [alertView buttonTitleAtIndex:buttonIndex];
     
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0
-                                                inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    if ( [buttonTitle isEqualToString:@"Add"] ) {
+        NSString *feedUrl = [alertView textFieldAtIndex:0].text;
+        
+        FDFeed* feed = [[FDFeed alloc] init];
+        feed.link = feedUrl;
+        feed.title = feedUrl;
+        
+        [feeds addObject:feed];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:feeds.count-1
+                                                    inSection:0];
+        [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
 }
 
 #pragma mark - UI Events
