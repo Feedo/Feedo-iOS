@@ -16,6 +16,16 @@
 
 @implementation APIConnector
 
+#pragma mark - Instance
++ (APIConnector *)instance
+{
+    static APIConnector *instance;
+    if ( !instance )
+        instance = [[APIConnector alloc] initWithHost:PREF_SERVER];
+    
+    return instance;
+}
+
 #pragma mark - Setters/Getters
 - (void)setHostUrl:(NSString *)hostUrl
 {

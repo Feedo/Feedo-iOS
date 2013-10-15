@@ -9,10 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "RestKit/RestKit.h"
 
+#import "Constants.h"
 #import "FDFeed.h"
 #import "FDFeedItem.h"
 
 @interface APIConnector : NSObject
+
++ (APIConnector *)instance;
 
 - (id)initWithHost:(NSString*)host;
 

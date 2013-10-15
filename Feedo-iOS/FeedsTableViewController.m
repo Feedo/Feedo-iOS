@@ -45,7 +45,7 @@
 }
 - (void)initAPIConnector
 {
-    connector = [[APIConnector alloc] initWithHost:LOCAL_SERVER];
+    connector = [APIConnector instance];
     [self loadFeeds];
 }
 
@@ -55,7 +55,15 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+- (void)reloadUIWithFeeds:(NSArray *)items
+{
+    feeds = [NSMutableArray arrayWithArray:items];
+    [self reloadUI];
+}
+- (void)reloadUI
+{
+    [self.tableView reloadData];
+}
 - (void)loadFeeds
 {
     [self.refreshControl beginRefreshing];
@@ -65,8 +73,7 @@
         [self.refreshControl endRefreshing];
         
         if ( !error ) {
-            feeds = [NSMutableArray arrayWithArray:items];
-            [self.tableView reloadData];
+            [self reloadUIWithFeeds:items];
         }
         else {
             [[[UIAlertView alloc] initWithTitle:error.localizedDescription

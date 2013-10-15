@@ -11,6 +11,7 @@
 #import "RestKit/RestKit.h"
 
 #import "Constants.h"
+#import "APIConnector.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

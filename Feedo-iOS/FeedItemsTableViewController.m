@@ -58,7 +58,7 @@
 }
 - (void)initAPIConnector
 {
-    connector = [[APIConnector alloc] initWithHost:LOCAL_SERVER];
+    connector = [APIConnector instance];
     [self loadFeedItems];
 }
 
