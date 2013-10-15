@@ -118,8 +118,7 @@
 
     FDFeed *feed = feeds[indexPath.row];
     cell.textLabel.text = [feed title];
-    // TODO make async
-    //cell.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:feed.faviconUrl]]];
+    [cell.imageView setImageWithURL:[NSURL URLWithString:feed.faviconUrl] placeholderImage:nil];
     
     return cell;
 }
