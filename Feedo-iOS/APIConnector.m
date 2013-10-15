@@ -46,7 +46,7 @@
     
     // FEED object
     RKResponseDescriptor *feedDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:[self mappingForFeed]
-                                                                                        method:RKRequestMethodGET
+                                                                                        method:RKRequestMethodAny // GET and POST (new)
                                                                                    pathPattern:@"/api/feeds"
                                                                                        keyPath:nil
                                                                                    statusCodes:statusCodesSuccess];

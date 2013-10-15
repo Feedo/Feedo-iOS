@@ -108,9 +108,17 @@
         }
         
         __block FeedsTableViewController *blockSelf = self;
+        __block NSMutableArray *blockFeeds = feeds;
         [connector addFeedFromURL:feedUrl WithCallback:^(NSArray *items, NSError *error) {
             if ( !error ) {
-                [blockSelf reloadUIWithFeeds:items];
+                // insert into array
+                [blockFeeds addObjectsFromArray:items];
+                
+                // insert into view
+                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:blockFeeds.count-1
+                                                            inSection:0];
+                [blockSelf.tableView insertRowsAtIndexPaths:@[indexPath]
+                                           withRowAnimation:UITableViewRowAnimationAutomatic];
             }
             else {
                 [[[UIAlertView alloc] initWithTitle:error.localizedDescription
@@ -120,11 +128,6 @@
                                   otherButtonTitles:nil] show];
             }
         }];
-        
-        /* [feeds addObject:feed];
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:feeds.count-1
-                                                    inSection:0];
-        [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic]; */
     }
 }
 - (BOOL)alertViewShouldEnableFirstOtherButton:(UIAlertView *)alertView
