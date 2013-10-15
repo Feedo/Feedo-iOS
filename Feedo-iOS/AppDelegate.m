@@ -13,13 +13,16 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [self setRKLogging];
     
+    return YES;
+}
+- (void)setRKLogging
+{
     // shut up
     RKLogConfigureByName("RestKit", RKLogLevelOff);
     RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelOff);
     RKLogConfigureByName("RestKit/Network", RKLogLevelOff);
-    
-    return YES;
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
