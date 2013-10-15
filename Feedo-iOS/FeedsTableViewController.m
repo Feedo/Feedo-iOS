@@ -68,8 +68,8 @@
             [self.tableView reloadData];
         }
         else {
-            [[[UIAlertView alloc] initWithTitle:@"Error"
-                                        message:error.description
+            [[[UIAlertView alloc] initWithTitle:error.localizedDescription
+                                        message:error.localizedFailureReason
                                        delegate:nil
                               cancelButtonTitle:@"Dismiss"
                               otherButtonTitles:nil] show];

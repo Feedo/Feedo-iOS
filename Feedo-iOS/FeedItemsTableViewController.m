@@ -79,6 +79,14 @@
             feedItems = [NSMutableArray arrayWithArray:array];
             [self.tableView reloadData];
         }
+        else {
+            [[[UIAlertView alloc] initWithTitle:error.localizedDescription
+                                        message:error.localizedFailureReason
+                                       delegate:nil
+                              cancelButtonTitle:@"Dismiss"
+                              otherButtonTitles:nil] show];
+        }
+        
     }];
 }
 
