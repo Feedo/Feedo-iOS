@@ -13,6 +13,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [self initPreferences];
+    
     [self setRKLogging];
     
     return YES;
@@ -23,6 +25,15 @@
     RKLogConfigureByName("RestKit", RKLogLevelOff);
     RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelOff);
     RKLogConfigureByName("RestKit/Network", RKLogLevelOff);
+}
+- (void)initPreferences
+{
+    NSArray *defaultObjects = [NSArray arrayWithObjects:LOCAL_SERVER_ADDRESS, [NSNumber numberWithInt:LOCAL_SERVER_PORT], nil];
+    NSArray *defaultKeys = [NSArray arrayWithObjects:@"server_url", @"server_port", nil];
+    
+    NSDictionary *appDefaults = [NSDictionary dictionaryWithObjects:defaultObjects
+                                                            forKeys:defaultKeys];
+    [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
