@@ -72,14 +72,13 @@
     // force request types to be JSON encoded
     manager.requestSerializationMIMEType = RKMIMETypeJSON;
     
-    //
     // Error message mapping
-    NSIndexSet *statusCodesError = RKStatusCodeIndexSetForClass(RKStatusCodeClassClientError);
+    NSIndexSet *statusCodesClientError = RKStatusCodeIndexSetForClass(RKStatusCodeClassClientError);
     RKResponseDescriptor *errorDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:[self mappingForClientErrors]
                                                                                          method:RKRequestMethodAny
                                                                                     pathPattern:nil
                                                                                         keyPath:@"message"
-                                                                                    statusCodes:statusCodesError];
+                                                                                    statusCodes:statusCodesClientError];
     [manager addResponseDescriptor:errorDescriptor];
 }
 - (RKObjectMapping *)mappingForFeed
