@@ -166,22 +166,25 @@
 {
     return 1;
 }
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)section
 {
     return feeds.count;
 }
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:REUSABLE_CELL_IDENFIIER
-                                                            forIndexPath:indexPath];
+    FDFeedCell *cell = [tableView dequeueReusableCellWithIdentifier:REUSABLE_CELL_IDENFIIER
+                                                       forIndexPath:indexPath];
     if ( !cell ) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                      reuseIdentifier:REUSABLE_CELL_IDENFIIER];
+        cell = [[FDFeedCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                 reuseIdentifier:REUSABLE_CELL_IDENFIIER];
     }
 
     FDFeed *feed = feeds[indexPath.row];
-    cell.textLabel.text = [feed title];
-    [cell.imageView setImageWithURL:[NSURL URLWithString:feed.faviconUrl]
+    cell.titleLabel.text = [feed title];
+    cell.descriptionLabel.text = [feed description];
+    [cell.feedImage setImageWithURL:[NSURL URLWithString:feed.faviconUrl]
                    placeholderImage:nil];
     
     return cell;

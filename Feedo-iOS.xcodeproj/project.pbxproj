@@ -13,6 +13,7 @@
 		4521942A180CA7F40007B57B /* FDFeedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 45219429180CA7F40007B57B /* FDFeedItem.m */; };
 		4547B485180C965B000B486F /* APIConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 4547B484180C965B000B486F /* APIConnector.m */; };
 		457BF7B8180D486C00828109 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 457BF7B7180D486C00828109 /* Settings.bundle */; };
+		457BF7C2180D7DE700828109 /* FDFeedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 457BF7C1180D7DE700828109 /* FDFeedCell.m */; };
 		45A9F045180C82AC001C46D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A9F044180C82AC001C46D2 /* Foundation.framework */; };
 		45A9F047180C82AC001C46D2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A9F046180C82AC001C46D2 /* CoreGraphics.framework */; };
 		45A9F049180C82AC001C46D2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A9F048180C82AC001C46D2 /* UIKit.framework */; };
@@ -113,6 +114,8 @@
 		4547B483180C965B000B486F /* APIConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIConnector.h; sourceTree = "<group>"; };
 		4547B484180C965B000B486F /* APIConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIConnector.m; sourceTree = "<group>"; };
 		457BF7B7180D486C00828109 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		457BF7C0180D7DE700828109 /* FDFeedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDFeedCell.h; sourceTree = "<group>"; };
+		457BF7C1180D7DE700828109 /* FDFeedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDFeedCell.m; sourceTree = "<group>"; };
 		45A9F041180C82AC001C46D2 /* Feedo-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Feedo-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45A9F044180C82AC001C46D2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		45A9F046180C82AC001C46D2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -279,6 +282,8 @@
 				45A9F05D180C82AC001C46D2 /* FeedItemsTableViewController.m */,
 				45A9F07C180C89F2001C46D2 /* FeedItemDetailsViewController.h */,
 				45A9F07D180C89F2001C46D2 /* FeedItemDetailsViewController.m */,
+				457BF7C0180D7DE700828109 /* FDFeedCell.h */,
+				457BF7C1180D7DE700828109 /* FDFeedCell.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -470,6 +475,7 @@
 			files = (
 				45A9F07E180C89F2001C46D2 /* FeedItemDetailsViewController.m in Sources */,
 				45A9F055180C82AC001C46D2 /* AppDelegate.m in Sources */,
+				457BF7C2180D7DE700828109 /* FDFeedCell.m in Sources */,
 				45A9F05B180C82AC001C46D2 /* FeedsTableViewController.m in Sources */,
 				45A9F084180C8DA6001C46D2 /* FDFeed.m in Sources */,
 				4521942A180CA7F40007B57B /* FDFeedItem.m in Sources */,
