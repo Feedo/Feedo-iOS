@@ -95,6 +95,33 @@
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
     [alert show];
 }
+- (void)addFeedRequest:(NSString *)feedUrl
+{
+    // block-save references
+    __block FeedsTableViewController *blockSelf = self;
+    __block NSMutableArray *blockFeeds = feeds;
+    
+    [connector addFeedFromURL:feedUrl WithCallback:^(NSArray *items, NSError *error) {
+        if ( !error ) {
+            // insert into array
+            [blockFeeds addObjectsFromArray:items];
+            
+            // insert into view
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:blockFeeds.count-1
+                                                        inSection:0];
+            [blockSelf.tableView insertRowsAtIndexPaths:@[indexPath]
+                                       withRowAnimation:UITableViewRowAnimationAutomatic];
+        }
+        else {
+            [[[UIAlertView alloc] initWithTitle:error.localizedDescription
+                                        message:error.localizedFailureReason
+                                       delegate:nil
+                              cancelButtonTitle:@"Dismiss"
+                              otherButtonTitles:nil] show];
+        }
+    }];
+}
+
 #pragma mark - AlertView
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
@@ -107,27 +134,7 @@
             feedUrl = [NSString stringWithFormat:@"http://%@", feedUrl];
         }
         
-        __block FeedsTableViewController *blockSelf = self;
-        __block NSMutableArray *blockFeeds = feeds;
-        [connector addFeedFromURL:feedUrl WithCallback:^(NSArray *items, NSError *error) {
-            if ( !error ) {
-                // insert into array
-                [blockFeeds addObjectsFromArray:items];
-                
-                // insert into view
-                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:blockFeeds.count-1
-                                                            inSection:0];
-                [blockSelf.tableView insertRowsAtIndexPaths:@[indexPath]
-                                           withRowAnimation:UITableViewRowAnimationAutomatic];
-            }
-            else {
-                [[[UIAlertView alloc] initWithTitle:error.localizedDescription
-                                            message:error.localizedFailureReason
-                                           delegate:nil
-                                  cancelButtonTitle:@"Dismiss"
-                                  otherButtonTitles:nil] show];
-            }
-        }];
+        [self addFeedRequest:feedUrl];
     }
 }
 - (BOOL)alertViewShouldEnableFirstOtherButton:(UIAlertView *)alertView
