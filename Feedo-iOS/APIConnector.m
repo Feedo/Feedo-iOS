@@ -80,6 +80,14 @@
                                                                                         keyPath:@"message"
                                                                                     statusCodes:statusCodesClientError];
     [manager addResponseDescriptor:errorDescriptor];
+    
+    NSIndexSet *statusCodesServerError = RKStatusCodeIndexSetForClass(RKStatusCodeClassServerError);
+    RKResponseDescriptor *errorServerDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:[self mappingForServerErrors]
+                                                                                               method:RKRequestMethodAny
+                                                                                          pathPattern:nil
+                                                                                              keyPath:@"message"
+                                                                                          statusCodes:statusCodesServerError];
+    [manager addResponseDescriptor:errorServerDescriptor];
 }
 - (RKObjectMapping *)mappingForFeed
 {
@@ -116,6 +124,14 @@
     RKObjectMapping *errorMapping = [RKObjectMapping mappingForClass:[RKErrorMessage class]];
     [errorMapping addPropertyMapping:[RKAttributeMapping attributeMappingFromKeyPath:nil
                                                                            toKeyPath:@"errorMessage"]];
+    return errorMapping;
+}
+- (RKObjectMapping *)mappingForServerErrors
+{
+    RKObjectMapping *errorMapping = [RKObjectMapping mappingForClass:[RKErrorMessage class]];
+    [errorMapping addPropertyMapping:[RKAttributeMapping attributeMappingFromKeyPath:nil
+                                                                           toKeyPath:@"errorMessage"]];
+    
     return errorMapping;
 }
 
