@@ -39,6 +39,7 @@
                                                                                action:@selector(addButtonPreseed:)];
     self.navigationItem.rightBarButtonItem = addButton;
     
+    // pull-to-refresh target
     [self.refreshControl addTarget:self
                               action:@selector(refreshControlPulled)
                     forControlEvents:UIControlEventAllEvents];
