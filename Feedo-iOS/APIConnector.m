@@ -60,6 +60,17 @@
                                                                                        statusCodes:statusCodesSuccess];
     [manager addResponseDescriptor:feedItemDescriptor];
     
+    // Error message mapping
+    NSIndexSet *statusCodesError = RKStatusCodeIndexSetForClass(RKStatusCodeClassClientError);
+    RKObjectMapping *errorMapping = [RKObjectMapping mappingForClass:[RKErrorMessage class]];
+    [errorMapping addPropertyMapping:[RKAttributeMapping attributeMappingFromKeyPath:nil toKeyPath:@"errorMessage"]];
+    RKResponseDescriptor *errorDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:errorMapping
+                                                                                         method:RKRequestMethodAny
+                                                                                    pathPattern:nil
+                                                                                        keyPath:@"message"
+                                                                                    statusCodes:statusCodesError];
+    [manager addResponseDescriptor:errorDescriptor];
+    
     // ADD FEED request
     RKObjectMapping *feedRequestMapping = [RKObjectMapping requestMapping];
     [feedRequestMapping addAttributeMappingsFromDictionary:@{ @"link": @"file_url" }];
