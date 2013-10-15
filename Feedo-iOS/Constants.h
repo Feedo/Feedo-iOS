@@ -11,4 +11,6 @@
 
 #define REUSABLE_CELL_IDENFIIER @"Cell"
 
+#define LOCAL_SERVER @"http://localhost:9292"
+
 #endif

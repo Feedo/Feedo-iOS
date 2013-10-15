@@ -58,7 +58,7 @@
 }
 - (void)initAPIConnector
 {
-    connector = [[APIConnector alloc] initWithHost:@"http://localhost:9292"];
+    connector = [[APIConnector alloc] initWithHost:LOCAL_SERVER];
     [self loadFeedItems];
 }
 
