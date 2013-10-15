@@ -71,6 +71,7 @@
 - (void)loadFeedItems
 {
     [self.refreshControl beginRefreshing];
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"Loading content of \"%@\"...", self.feed.title]];
     
     [connector requestFeedItemsWithFeedID:self.feed.identifier WithCallback:^(NSArray *array, NSError *error) {
         [self.refreshControl endRefreshing];
