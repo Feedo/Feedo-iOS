@@ -107,12 +107,8 @@
             feedUrl = [NSString stringWithFormat:@"http://%@", feedUrl];
         }
         
-        FDFeed* feed = [[FDFeed alloc] init];
-        feed.link = feedUrl;
-        feed.title = feedUrl;
-        
         __block FeedsTableViewController *blockSelf = self;
-        [connector addFeed:feed WithCallback:^(NSArray *items, NSError *error) {
+        [connector addFeedFromURL:feedUrl WithCallback:^(NSArray *items, NSError *error) {
             if ( !error ) {
                 [blockSelf reloadUIWithFeeds:items];
             }
@@ -125,10 +121,10 @@
             }
         }];
         
-        [feeds addObject:feed];
+        /* [feeds addObject:feed];
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:feeds.count-1
                                                     inSection:0];
-        [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic]; */
     }
 }
 - (BOOL)alertViewShouldEnableFirstOtherButton:(UIAlertView *)alertView
