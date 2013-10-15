@@ -143,12 +143,19 @@
     NSString *input = [[alertView textFieldAtIndex:0] text];
     if ( input ) {
         // validate url
-        NSString *urlRegEx = @"(http|https)://((\\w)*|([0-9]*)|([-|_])*)+([\\.|/]((\\w)*|([0-9]*)|([-|_])*))+";
-        NSPredicate *urlTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", urlRegEx];
-        return [urlTest evaluateWithObject:input];
+        return [self isValidUrl:input];
     }
     
     return NO;
+}
+
+#pragma mark - Helpers
+- (BOOL)isValidUrl:(NSString *)url
+{
+    NSString *urlRegEx = @"(http|https)://((\\w)*|([0-9]*)|([-|_])*)+([\\.|/]((\\w)*|([0-9]*)|([-|_])*))+";
+    NSPredicate *urlTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", urlRegEx];
+    return [urlTest evaluateWithObject:url];
+
 }
 
 #pragma mark - UI Events
@@ -184,6 +191,7 @@
     FDFeed *feed = feeds[indexPath.row];
     cell.titleLabel.text = [feed title];
     cell.descriptionLabel.text = [feed description];
+    
     [cell.feedImage setImageWithURL:[NSURL URLWithString:feed.faviconUrl]
                    placeholderImage:nil];
     
