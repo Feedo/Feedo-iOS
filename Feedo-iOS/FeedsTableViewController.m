@@ -59,6 +59,7 @@
 - (void)loadFeeds
 {
     [self.refreshControl beginRefreshing];
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"Getting feeds from %@...", PREF_SERVER]];
     
     [connector requestFeedsWithCallback:^(NSArray *items, NSError *error) {
         [self.refreshControl endRefreshing];
