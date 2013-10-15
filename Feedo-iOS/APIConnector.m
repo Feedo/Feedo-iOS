@@ -133,7 +133,8 @@
                       }];
 }
 
-- (void)requestFeedItemsWithFeedID:(int)feedId WithCallback:(void (^)(NSArray *array, NSError *error))callback
+- (void)requestFeedItemsWithFeedID:(int)feedId
+                      WithCallback:(void (^)(NSArray *array, NSError *error))callback
 {
     NSString* url = [NSString stringWithFormat:@"/api/feeds/%d/items", feedId];
     
@@ -149,14 +150,16 @@
                       }];
 }
 
-- (void)addFeedFromURL:(NSString *)url WithCallback:(void (^)(NSArray *items, NSError *error))callback
+- (void)addFeedFromURL:(NSString *)url
+          WithCallback:(void (^)(NSArray *items, NSError *error))callback
 {
     FDFeed *feed = [[FDFeed alloc] init];
     feed.link = url;
     
     [self addFeed:feed WithCallback:callback];
 }
-- (void)addFeed:(FDFeed *)feed WithCallback:(void (^)(NSArray *items, NSError *error))callback
+- (void)addFeed:(FDFeed *)feed
+   WithCallback:(void (^)(NSArray *items, NSError *error))callback
 {
     [manager postObject:feed
                    path:@"/api/feeds"
